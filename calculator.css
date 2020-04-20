@@ -1,6 +1,6 @@
 .calculator_body{
   display: grid;
-  grid-template-rows: 0.75fr 0.25fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  grid-template-rows: 0.30fr 0.45fr 0.25fr 0.5fr 0.5fr 0.5fr 0.5fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
   height:650px;
@@ -15,16 +15,26 @@
   background-color: #d4949f;
   grid-column-start: 1;
   grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end:3;
 
 }
 .keys{
   background-color: black;
 }
 
-.numbers_on_display {
+.results_on_display {
   position: absolute;
     right: 3%;
     bottom: 2%;
-    font-size: 100px;
+    font-size: 60px;
+    color: white;
+}
+
+.operations_on_display{
+    position: absolute;
+    right: 3%;
+    top: 17%;
+    font-size: 30px;
     color: white;
 }

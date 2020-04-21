@@ -27,14 +27,15 @@ button.addEventListener('click', () => {
     }
     	else if(button.id=='equal'){
     		total = operate(operator, parseFloat(num1),parseFloat(num2))
+    		total = total
     		console.log(total)
     		changeDisplay(total)
     		operator = ''
-	num1 = total
+	num1 = total.toExponential(4)
 	num2 = ''		
     	}
     	else{
-    		if(num2.length<12){
+    		if(num2.length<9){
     		num2+=button.id
 
     		console.log('num 2 '+ num2)
@@ -57,7 +58,7 @@ button.addEventListener('click', () => {
     	if(num1==total){
     		num1= ''
     	}
-    if(num1.length<12){	
+    if(num1.length<9){	
     num1+= button.id
     console.log('num 1 '+num1)
     changeDisplay(button.id)}
@@ -93,10 +94,20 @@ function allClear(){
 }
 
 function changeDisplay(character){
+if(total >= 9.9999999995e+99){
+	document.getElementById("results_on_display").innerHTML ='Max. value reached'
+}
 if(character == total){
-		display = total
+		display = total.toFixed(3)
+		display = parseFloat(display)
+		console.log('display parseado =')
+		if(display > 99999999999){
+		document.getElementById("results_on_display").innerHTML =display.toExponential(4)
+		}
+		else{
 		document.getElementById("results_on_display").innerHTML = display
 		console.log('display depois do igual ' +display)
+	}
 	}
 else if(character == ''){
 	display = '0'

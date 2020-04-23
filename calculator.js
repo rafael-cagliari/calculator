@@ -135,7 +135,7 @@ else{
 
 
 function deleteCharacter(){
-	if(num2 == '' && num1 != ''){
+	if(num2 == '' && num1 != '' && operator == ''){
 		num1 = num1.substring(0, num1.length-1)
 		changeDisplay()
 	}

@@ -41,7 +41,7 @@ button.addEventListener('click', () => {
 			num2 = ''		
 			}
 			else{
-				num1 = total;
+				num1 = total.toFixed(3);
 				num2= '';
 			
 			}

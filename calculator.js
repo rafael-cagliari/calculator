@@ -11,7 +11,7 @@ buttons.forEach((button) => {
 
 
 button.addEventListener('click', () => {
-    console.log('button id: ' + button.id);
+    
     if(button.id =='del'){
     	deleteCharacter()
     	return
@@ -27,13 +27,13 @@ button.addEventListener('click', () => {
     	
     	if(button.id=='*'||button.id=='/'||button.id=='-'||button.id=='+'){
     	operator = button.id
-    	console.log('operator ' + button.id)
+    	
     	changeDisplay(button.id)
     }
     	else if(button.id=='equal'){
     		total = operate(operator, parseFloat(num1),parseFloat(num2))
     		total = total
-    		console.log(total)
+    		
     		changeDisplay(total)
     		operator = ''
 	
@@ -41,7 +41,8 @@ button.addEventListener('click', () => {
 			num2 = ''		
 			}
 			else{
-				num1 = total.toFixed(3);
+				num1 = total;
+				num1 = num1.toFixed(3)
 				num2= '';
 			
 			}
@@ -50,7 +51,6 @@ button.addEventListener('click', () => {
     		if(num2.length<9){
     		num2+=button.id
 
-    		console.log('num 2 '+ num2)
     		changeDisplay(button.id)}
     		else{
 
@@ -64,7 +64,7 @@ button.addEventListener('click', () => {
     else if(button.id=='*'||button.id=='/'||button.id=='-'||button.id=='+'){
     	
     	operator = button.id
-    	console.log('operator ' + button.id)
+    	
     	changeDisplay(button.id)}
     else{
     	if(num1==total){
@@ -72,7 +72,7 @@ button.addEventListener('click', () => {
     	}
     if(num1.length<9){	
     num1+= button.id
-    console.log('num 1 '+num1)
+  
     changeDisplay(button.id)}
     else{
 
@@ -111,14 +111,15 @@ if(total >= 9.9999999995e+99){
 }
 if(character == total){
 		display = total.toFixed(3)
+		console.log('total = '+ total + 'to fixed = ' + display)
 		display = parseFloat(display)
-		console.log('display parseado =')
+		console.log('display parseado =' + display)
 		if(display > 99999999999){
 		document.getElementById("results_on_display").innerHTML =display.toExponential(4)
 		}
 		else{
 		document.getElementById("results_on_display").innerHTML = display
-		console.log('display depois do igual ' +display)
+		
 	}
 	}
 else if(character == ''){
@@ -127,7 +128,9 @@ else if(character == ''){
 	document.getElementById("operations_on_display").innerHTML = display
 }
 else{
-		
+	console.log('num1 antes de parsear '+num1)
+	
+	
 	document.getElementById("operations_on_display").innerHTML = num1+operator+num2
 	
 	}

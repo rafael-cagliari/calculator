@@ -12,6 +12,11 @@ buttons.forEach((button) => {
 
 button.addEventListener('click', () => {
     console.log('button id: ' + button.id);
+    if(button.id =='del'){
+    	deleteCharacter()
+    	return
+    }
+
     if(button.id=='ac'){
     	allClear()
     	changeDisplay('')
@@ -31,8 +36,15 @@ button.addEventListener('click', () => {
     		console.log(total)
     		changeDisplay(total)
     		operator = ''
-	num1 = total.toExponential(4)
-	num2 = ''		
+	
+			if(total > 999999999){num1 = total.toExponential(4)
+			num2 = ''		
+			}
+			else{
+				num1 = total;
+				num2= '';
+			
+			}
     	}
     	else{
     		if(num2.length<9){
@@ -121,3 +133,16 @@ else{
 	}
 }
 
+
+function deleteCharacter(){
+	if(num2 == '' && num1 != ''){
+		num1 = num1.substring(0, num1.length-1)
+		changeDisplay()
+	}
+	else if(num2 != ''){
+		 num2 = num2.substring(0, num2.length-1)
+		 changeDisplay()
+	}
+	else{
+	}
+}

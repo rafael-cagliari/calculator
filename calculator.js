@@ -43,6 +43,7 @@ button.addEventListener('click', () => {
 			else{
 				num1 = total;
 				num1 = num1.toFixed(3)
+				num1 = parseFloat(num1)
 				num2= '';
 			
 			}
